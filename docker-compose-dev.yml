@@ -1,0 +1,58 @@
+version: "3"
+
+volumes:
+  postgres-data:
+
+services:
+
+  server:
+    image: django-angular-server
+    container_name: django-angular-server
+    command: sh
+    tty: true
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    # CHANGE IF GEOS to 'postgis'
+    depends_on:
+      - postgres
+
+  client:
+    image: django-angular-client
+    container_name: django-angular-client
+    command: bash -c "yarn && sh"
+    tty: true
+    volumes:
+      - .:/code
+    ports:
+      - "3000:3000"
+
+  postgres:
+    image: postgres:9.6
+    container_name: django-angular-postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: webuser
+      POSTGRES_USER: webuser
+      POSTGRES_DB: webapp
+
+  e2e:
+    image: webnicer/protractor-headless
+    container_name: e2e
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - ./client:/protractor
+      - /dev/shm:/dev/shm
+
+  codegen:
+    image: swaggerapi/swagger-generator
+    container_name: django-angular-codegen
+    environment:
+      - GENERATOR_HOST=http://192.168.99.100
+    ports:
+      - 8222:8080
+    volumes:
+      - ./client/swagger:/gen

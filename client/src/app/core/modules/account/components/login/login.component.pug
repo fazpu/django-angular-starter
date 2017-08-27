@@ -1,0 +1,55 @@
+account-card([title]="'Login'")
+
+  form([formGroup]='loginForm', (ngSubmit)='login()', class='account-form')
+
+    div(fxLayout='row')
+      div(fxFlex)
+
+        md-input-container(class='account-form-full-width')
+          input(mdInput,
+                type='text',
+                name='email',
+                formControlName='email',
+                placeholder='Email',
+                required)
+
+          md-error(*ngIf="email.hasError('required')").
+            Email is <strong>required</strong>
+
+          md-error(*ngIf="email.hasError('minLength')").
+            Email must be at least 3 characters long
+
+          md-error(*ngIf="email.hasError('email') && !email.hasError('required')").
+            Email format is not valid
+
+          md-error(*ngIf="email.hasError('maxLength')").
+            Email maximum length was exceeded
+    br
+
+    div(fxLayout='row')
+      div(fxFlex)
+        md-input-container(class='account-form-full-width')
+          input(mdInput,
+                required,
+                type='password',
+                name='password',
+                formControlName='password',
+                placeholder='Password')
+
+          md-error(*ngIf="password.hasError('required')").
+            Password is <strong>required</strong>
+
+          md-error(*ngIf="password.hasError('minLength')").
+            Password must be at least 6 characters long
+    br
+
+    div(fxLayout='row')
+      div(fxFlex)
+        button(md-raised-button, type='submit').
+          Login
+
+    div(fxLayout='row')
+      div(fxFlex)
+        md-error(*ngIf="errorMessages")
+          span.
+            {{ errorMessages | async }}

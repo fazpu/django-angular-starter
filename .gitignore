@@ -1,0 +1,124 @@
+# Virtual environments
+prod_env/
+test_env/
+dev_env/
+ansible_env/
+
+# certificates
+ssl_certs/
+
+#frontend testing converage report
+coverage/
+
+# Python - recommended by Vagrant tutorial
+bin/
+# build/
+include/
+lib/
+local/
+
+# Pycharm
+re
+sys
+
+# Basics
+*.py[cod]
+*.pyc
+__pycache__
+
+#ansible
+*.retry
+
+#cache files
+.cache
+.local
+.config
+.psql_history
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Logs
+*.log
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+# *.mo
+*.pot
+
+# Pycharm
+.idea
+
+# Vim
+
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+.npm/
+
+# Compass
+.sass-cache
+
+# Angular #
+*.ngfactory.ts
+*.css.shim.ts
+*.ngsummary.json
+*.shim.ngstyle.ts
+
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+.idea
+.vscode
+
+# Node Files #
+/node_modules
+/bower_components
+npm-debug.log
+
+# Typing #
+/src/typings/tsd/
+/typings/
+/tsd_typings/
+
+# Dist #
+/dist/
+/__build__/**
+.webpack.json
+/src/assets/bower_components/
+
+# Coverage #
+/coverage/
+
+/output/
+/compiled/
+.awcache/
+/src/app/styles.css
+ts-node
+/**/*.ngfactory.ts
+/**/*.css.ts
+/**/*.css.shim.ts
+dll/
+ts-node-*

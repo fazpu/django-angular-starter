@@ -1,0 +1,79 @@
+account-card([title]="'Registration'")
+
+  form([formGroup]='registerForm', (ngSubmit)='register()', class='account-form')
+
+    div(fxLayout='row')
+      div(fxFlex)
+
+        md-input-container(class='account-form-full-width')
+          input(mdInput,
+                required,
+                type='text'
+                name='email'
+                formControlName='email'
+                placeholder='Email')
+
+          md-error(*ngIf="email.hasError('required')").
+            Email is <strong>required</strong>
+
+          md-error(*ngIf="email.hasError('minLength')").
+            Email must be at least 3 characters long
+
+          md-error(*ngIf="email.hasError('email') && !email.hasError('required')").
+            Email format is not valid
+
+          md-error(*ngIf="email.hasError('maxLength')").
+            Email maximum length was exceeded
+
+          br
+
+    div(fxLayout='row')
+      div(fxFlex)
+
+        md-input-container(class='account-form-full-width')
+          input(mdInput,
+                required,
+                type='password'
+                name='password1'
+                formControlName='password1'
+                placeholder='Password1')
+
+          md-error(*ngIf="password1.hasError('required')").
+            Password is <strong>required</strong>
+
+          br
+
+    div(fxLayout='row')
+      div(fxFlex)
+
+        md-input-container(class='account-form-full-width')
+          input(mdInput,
+                required,
+                 type='password'
+                 name='password2'
+                 formControlName='password2'
+                 validateEqualTo='password1'
+                 placeholder='Password2')
+
+          md-error(*ngIf="password2.hasError('required')").
+            Password is <strong>required</strong>
+
+          md-error(*ngIf="password2.hasError('minLength')").
+            Password must be at least 6 characters long
+
+          md-error(*ngIf="password2.hasError('validateEqual')").
+            Passwords do not match
+
+    div(fxLayout='row')
+      div(fxFlex)
+
+        br
+
+        button(md-raised-button, type='submit').
+              Register
+
+    div(fxLayout='row')
+      div(fxFlex)
+        md-error(*ngIf="errorMessages")
+          span.
+            {{ errorMessages | async }}

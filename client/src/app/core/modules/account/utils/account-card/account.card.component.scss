@@ -1,0 +1,19 @@
+.account-card {
+  min-height: 100%;
+}
+
+/deep/ .mat-input-underline {
+    background-color: black;    /* replace this color with your accent color hex code */
+}
+
+/deep/ .mat-input-placeholder {
+    color: black;    /* replace this color with your accent color hex code */
+}
+
+.account-form {
+  width: 100%;
+}
+
+.account-form-full-width {
+  width: 100%;
+}

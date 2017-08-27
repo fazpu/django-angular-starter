@@ -1,0 +1,31 @@
+div(fxLayout='column', fxFlexFill)
+
+  div(fxFlex="30vh").
+
+  div(fxFlex="60")
+
+    div(fxLayout='row', fxLayoutAlign="center center")
+
+      div(fxFlex="20")
+
+      div(fxFlex="60")
+
+        md-card(class='account-card')
+
+          div(fxLayout='row')
+            div(fxFlex="20")
+
+            div(fxFlex="60")
+
+              md-card-title {{ titleText }}
+
+              md-card-content(fxLayoutAlign="center", fxFlexFill)
+
+                ng-content
+
+            div(fxFlex)
+
+      div(fxFlex)
+
+
+  div(fxFlex="20")

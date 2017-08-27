@@ -1,0 +1,2 @@
+CREATE USER webuser WITH SUPERUSER PASSWORD 'webuser';
+CREATE DATABASE webapp OWNER webuser;

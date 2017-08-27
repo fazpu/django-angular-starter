@@ -1,0 +1,20 @@
+md-sidenav-container(fullscreen)
+
+  md-sidenav([opened]="menuOpened | async", #sidenav, [mode]="sideNavMode")
+    md-nav-list
+      ng-template(ngFor, let-view, [ngForOf]="views", let-even="even", let-odd="odd", let-rowIndex="index")
+        a(md-list-item, [routerLink]="view.link", routerLinkActive="active-link", (click)="mobile ? sidenav.close() : {}")
+          md-icon(md-list-icon).
+            {{view.icon}}
+          span(md-line).
+            {{view.name}}
+          span(md-line class="secondary").
+            {{view.description}}
+
+  md-toolbar(color="primary")
+    button(md-icon-button, (click)="toggleSidebar()").
+      #[md-icon menu] Angular Starter App
+
+  router-outlet((activate)="activateEvent($event)", (deactivate)="deactivateEvent($event)")
+
+my-store-devtools(*ngIf="showMonitor")
