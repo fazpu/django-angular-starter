@@ -22,8 +22,8 @@ CUSTOM_ACCOUNT_EMAIL_CONFIRMATION_SUFFIX = 'login'
 # GMAIL SETTING
 DEFAULT_FROM_EMAIL = 'example@example.com'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'edun.zina@gmail.com'
-EMAIL_MAIN = 'edun.zina@gmail.com'
-EMAIL_HOST_PASSWORD = 'detandemailsend'
+EMAIL_HOST_USER = 'example@gmail.com'
+EMAIL_MAIN = 'example@gmail.com'
+EMAIL_HOST_PASSWORD = 'example_password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

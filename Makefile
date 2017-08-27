@@ -6,4 +6,4 @@
 wait:
 	sleep 5
 
-firstrun: buildserver buildclient composeup wait makemigrations migrate runserver
+firstrun: buildserver buildclient composeup wait makemigrations migrate initdata runserver

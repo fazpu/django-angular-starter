@@ -17,8 +17,6 @@ ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
-# GDAL_LIBRARY_PATH = '/usr/lib/libgdal.so'
-
 # Application definition
 
 INSTALLED_APPS = [
