@@ -3,4 +3,4 @@
 -include build/makefiles/docker.Makefile
 -include build/makefiles/frontend.Makefile
 
-firstrun: buildserver buildclient composeup makemigrations migrate runserver
+firstrun: buildserver buildclient composeup python -c "import time; time.sleep(5)" makemigrations migrate runserver
