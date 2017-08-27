@@ -51,8 +51,8 @@ This is an opinionated bootstrap repository for Django with Angular
 * `refreshyarn` - removes node_modules and runs yarn
 
 ### Swagger make commands
-* `genswagger` - 
-* `tsgen` - 
+* `genswagger` - generates swagger file based on django models
+* `tsgen` - generates angular interfaces and services based on previously generated swagger file. Please note the generated services are currently not usable (for Angular 4.3+)
 
 ### Docker make commands
 * `buildpostgres` - builds postgres image
