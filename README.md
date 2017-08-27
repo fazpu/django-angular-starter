@@ -5,7 +5,7 @@ This is an opinionated bootstrap repository for Django with Angular
 ## Requirements
 * Install Docker and Docker Compose
 * run `make firstrun` - this will download all necessary docker images, runs migrations and initiate django development server
-* in new terminal window run `make devhot` that starts a webpack development server (which proxies requests to django server)
+* in new terminal window run `make dev` that starts a webpack development server (which proxies requests to django server)
 * the development is then done on http://localhost:3000
 
 ## Key Django features
