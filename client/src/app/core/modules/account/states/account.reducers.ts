@@ -3,6 +3,8 @@ import { Action } from '@ngrx/store';
 import { AccountActions } from './account.actions';
 import { IAccountState } from '../models';
 
+import { AuthRefreshTokenService } from '../services/refresh-token/refresh-token.service';
+
 const initialState: IAccountState = {
   loggedIn: false,
   isAdmin: false,
@@ -12,7 +14,9 @@ const initialState: IAccountState = {
 };
 
 
-export function accountReducer (state: IAccountState = initialState, action: Action): IAccountState {
+export function accountReducer (
+    state: IAccountState = initialState,
+    action: Action): IAccountState {
   switch (action.type) {
     case AccountActions.REQUEST_START:
       return Object.assign({}, state, { loading: action.payload });
@@ -24,6 +28,15 @@ export function accountReducer (state: IAccountState = initialState, action: Act
       return Object.assign({}, state, action.payload);
 
     case AccountActions.LOGIN_ERROR:
+      return Object.assign({}, state, action.payload);
+
+    case AccountActions.CHECK_TOKEN_FOR_REFRESH:
+      return Object.assign({}, state, action.payload);
+
+    case AccountActions.REFRESH_TOKEN_SUCCESS:
+      return Object.assign({}, state, action.payload);
+
+    case AccountActions.REFRESH_TOKEN_ERROR:
       return Object.assign({}, state, action.payload);
 
     case AccountActions.LOGOUT:

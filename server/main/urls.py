@@ -27,11 +27,10 @@ urlpatterns = [
     # JWT tokens
     url(r'^api/api-token-auth/', obtain_jwt_token),
     url(r'^api/api-token-refresh/', refresh_jwt_token),
-    url(r'^api/api-token-verify/', verify_jwt_token),
 
 ]
 
-if settings.APP_ENVIRONMENT == 'dev':
+if settings.APP_ENVIRONMENT == 'swagger':
     from rest_framework_swagger.views import get_swagger_view
 
     schema_view = get_swagger_view(title='Django Angular API')

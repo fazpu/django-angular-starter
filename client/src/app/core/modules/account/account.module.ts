@@ -57,6 +57,10 @@ from './components/_success_views/logout-success/logout.component-success';
 import { AuthRegistrationSuccessComponent }
 from './components/_success_views/registration/registration-success.component';
 
+// effects
+import { EffectsModule } from '@ngrx/effects';
+import { AccountEffects } from './states/account.effects';
+
 
 @NgModule({
     imports: [
@@ -67,6 +71,7 @@ from './components/_success_views/registration/registration-success.component';
         ReactiveFormsModule,
         MaterialModule,
         FlexLayoutModule,
+        EffectsModule.run(AccountEffects),
     ],
     declarations: [
         AuthChangePasswordComponent,

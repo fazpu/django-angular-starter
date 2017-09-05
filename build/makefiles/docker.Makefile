@@ -14,6 +14,9 @@ buildclient:
 composeup:
 	docker-compose -f docker-compose-dev.yml up -d
 
+composedown:
+	docker stop django-angular-server django-angular-postgres django-angular-client django-angular-codegen
+
 prune:
 	docker image prune -f && docker container prune -f
 
@@ -23,3 +26,9 @@ buildprodserver:
 
 buildprodgeosserver:
 	docker build . -t django-angular-server -f build/docker/dev/geos/server/Dockerfile
+
+serversh:
+	docker exec -it django-angular-server sh
+
+clientsh:
+	docker exec -it django-angular-client sh

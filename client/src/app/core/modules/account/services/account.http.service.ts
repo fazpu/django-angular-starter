@@ -15,7 +15,8 @@ export class AccountHttpService {
       'FORGOTTEN_PASSWORD_REQUEST': '/api/rest-auth/password/reset/',
       'LOGOUT': '/api/rest-auth/logout/',
       'REGISTER': '/api/rest-auth/registration/',
-      'LOGIN': '/api/rest-auth/login/'
+      'LOGIN': '/api/rest-auth/login/',
+      'REFRESH_TOKEN': '/api/api-token-refresh/'
   };
 
   constructor(private http: HttpClient) { }
@@ -42,6 +43,10 @@ export class AccountHttpService {
 
   login(credentials: ILogin): Observable<Response> {
     return this.http.post(this.URLS.LOGIN, JSON.stringify(credentials));
+  }
+
+  refreshToken(token: string): Observable<Response> {
+    return this.http.post(this.URLS.REFRESH_TOKEN, JSON.stringify({token: token}));
   }
 
 }
