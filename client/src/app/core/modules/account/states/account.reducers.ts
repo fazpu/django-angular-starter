@@ -3,8 +3,6 @@ import { Action } from '@ngrx/store';
 import { AccountActions } from './account.actions';
 import { IAccountState } from '../models';
 
-import { AuthRefreshTokenService } from '../services/refresh-token/refresh-token.service';
-
 const initialState: IAccountState = {
   loggedIn: false,
   isAdmin: false,
