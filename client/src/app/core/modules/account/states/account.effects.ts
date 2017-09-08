@@ -14,7 +14,7 @@ export class AccountEffects {
       private refreshTokenService: AuthRefreshTokenService,
       public store: Store<AppState>) {}
 
-  @Effect() data$ = this.actions
+  @Effect({dispatch: false}) refreshTokenEffect = this.actions
     .ofType(routerActions.UPDATE_LOCATION)
     .map(toPayload)
     .map(payload => {
