@@ -3,10 +3,10 @@
 This is an opinionated bootstrap repository for Django with Angular
 
 ## Requirements
-* Ensure Docker and Docker Compose are installed (https://docs.docker.com/compose/install/)
-* Check that no other docker containers are blocking ports 3000, 8000 or 9000
+* ensure Docker and Docker Compose are installed (https://docs.docker.com/compose/install/)
+* check that no other docker containers are blocking ports 3000, 8000 or 9000
 * run `make firstrun` - this will download and build all necessary docker images, runs migrations and initiate django development server
-* in new terminal window run `make dev` that starts a webpack development server (which proxies requests to django server)
+* in new terminal window run `make dev` that starts a webpack development server with hot reload (which proxies requests to django server)
 * the development is then done on http://localhost:3000
 
 ## Key Django features
@@ -15,8 +15,8 @@ This is an opinionated bootstrap repository for Django with Angular
 
 ### swagger
 * it is possible to see the definition of all the endpoints on http://localhost:9000
-* However, note that this is only possible thanks to @swagger_permissions decorator, which is necessary to use with every protected view
-* Future use - it should be possible to generate Angular services based on auto-generated swagger file
+* however, note that this is only possible thanks to @swagger_permissions decorator, which is necessary to use with every protected view
+* future use - it should be possible to generate Angular services based on auto-generated swagger file
 * Unfortunately, this is not currently possible due to the following issue: (https://github.com/marcgibbons/django-rest-swagger/issues/549)
 
 ## Angular key feature
@@ -72,7 +72,7 @@ This is an opinionated bootstrap repository for Django with Angular
 * `prune` - removes unused images and containers
 
 # Internal project dependencies
-* This project is based on the angular-webpack2-starter project (https://github.com/qdouble/angular-webpack2-starter)
+* this project is based on the angular-webpack2-starter project (https://github.com/qdouble/angular-webpack2-starter)
 
 
 # License
