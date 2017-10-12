@@ -3,7 +3,8 @@
 This is an opinionated bootstrap repository for Django with Angular
 
 ## Requirements
-* Install Docker and Docker Compose
+* Ensure Docker and Docker Compose are installed (https://docs.docker.com/compose/install/)
+* Check that no other docker containers are blocking ports 3000, 8000 or 9000
 * run `make firstrun` - this will download and build all necessary docker images, runs migrations and initiate django development server
 * in new terminal window run `make dev` that starts a webpack development server (which proxies requests to django server)
 * the development is then done on http://localhost:3000
@@ -15,19 +16,27 @@ This is an opinionated bootstrap repository for Django with Angular
 ### swagger
 * it is possible to see the definition of all the endpoints on http://localhost:9000
 * However, note that this is only possible thanks to @swagger_permissions decorator, which is necessary to use with every protected view
-
+* Future use - it should be possible to generate Angular services based on auto-generated swagger file
+* Unfortunately, this is not currently possible due to the following issue: (https://github.com/marcgibbons/django-rest-swagger/issues/549)
 
 ## Angular key feature
 * django-rest-auth implementation
 * interceptors are used for sending JWT tokens
-* the app is based around ngrx
+* the app is based around ngrx (upgrade to v4 coming soon)
 * the app is derived from the project angular-webpack2-starter
 * for the e2e testing, docker image webnicer/protractor-headless is used
 * pug files can be used instead of html files
 
+## Docker
+* why docker?
+* all team members have identical development environment
+* easy continuous integration / deployment strategies with tools, such as Drone
+* easy production setup with Docker Swarm
+
 ## Make commands
-* they make it easier to run common tasks
-* the commands are based in build/makefiles directory and aggregated in Makefile file
+* why make commands?
+* less writing, really. Compare `make dev` vs `docker exec -it django-angular-client yarn run start:inline`
+* the commands are defined in build/makefiles directory and aggregated in Makefile file
 
 * `firstrun` - turns on docker containers, run migrations and starts development server
 * `composeup` - turns on docker containers
