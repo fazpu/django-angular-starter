@@ -1,3 +1,5 @@
+
+
 # Angular + Django seed
 
 This is an opinionated bootstrap repository for Django with Angular
@@ -15,7 +17,7 @@ This is an opinionated bootstrap repository for Django with Angular
 
 ### swagger
 * it is possible to see the definition of all the endpoints on http://localhost:9000
-* however, note that this is only possible thanks to @swagger_permissions decorator, which is necessary to use with every protected view
+* however, note that this is only possible thanks to @swagger_permissions() decorator, which is necessary to use with every protected view
 * future use - it should be possible to generate Angular services based on auto-generated swagger file
 * Unfortunately, this is not currently possible due to the following issue: (https://github.com/marcgibbons/django-rest-swagger/issues/549)
 
